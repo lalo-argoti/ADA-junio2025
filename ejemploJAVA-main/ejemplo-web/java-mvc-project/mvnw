@@ -1,0 +1,3 @@
+#!/bin/sh
+# mvnw script simplificado que llama al mvn instalado
+mvn "$@"

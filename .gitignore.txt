@@ -1,0 +1,42 @@
+# === JAVA & MAVEN BACKEND ===
+**/target/
+**/out/
+**/.classpath
+**/.project
+**/.settings/
+**/.idea/
+**/*.iml
+**/.DS_Store
+**/logs/
+**/*.log
+
+# Maven wrapper
+mvnw
+mvnw.cmd
+
+# OS-specific
+Thumbs.db
+.DS_Store
+
+# === NODE & VITE FRONTEND ===
+**/node_modules/
+**/dist/
+**/build/
+
+# Env & Cache
+.env
+.vite
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.vscode/
+.cache/
+
+# === DOCKER (si usas imágenes locales temporales) ===
+**/docker-compose.override.yml
+**/.docker/
+
+# === OTRAS EXCLUSIONES OPCIONALES ===
+grafo.jpg
+README.md.txt
