@@ -198,3 +198,38 @@ Diagrama visual
 
 
 
+
+```
+sqlcmd -S 31.97.133.226,1433 -U SA -P 'PruebDeTalento!' -d miBaseDatos -Q "CREATE TABLE company (
+    id_company BIGINT IDENTITY(1,1) PRIMARY KEY,
+    codigo_company NVARCHAR(100) UNIQUE NOT NULL,
+    name_company NVARCHAR(255) NOT NULL,
+    description_company NVARCHAR(MAX)
+);" -C -N
+
+
+sqlcmd -S 31.97.133.226,1433 -U SA -P 'PruebDeTalento!' -d miBaseDatos -Q "CREATE TABLE application (
+    app_id BIGINT IDENTITY(1,1) PRIMARY KEY,
+    codigo_app NVARCHAR(100) UNIQUE NOT NULL,
+    name_app NVARCHAR(255) NOT NULL,
+    description_app NVARCHAR(MAX)
+);" -C -N
+
+
+sqlcmd -S 31.97.133.226,1433 -U SA -P 'PruebDeTalento!' -d miBaseDatos -Q "CREATE TABLE version (
+    version_id BIGINT IDENTITY(1,1) PRIMARY KEY,
+    app_id BIGINT NOT NULL UNIQUE,
+    version NVARCHAR(100) NOT NULL,
+    version_descripcion NVARCHAR(MAX),
+    FOREIGN KEY (app_id) REFERENCES application(app_id)
+);" -C -N
+
+sqlcmd -S 31.97.133.226,1433 -U SA -P 'PruebDeTalento!' -d miBaseDatos -Q "CREATE TABLE version_company (
+    version_company_id BIGINT IDENTITY(1,1) PRIMARY KEY,
+    company_id BIGINT NOT NULL UNIQUE,
+    version_id BIGINT NOT NULL,
+    version_company_description NVARCHAR(MAX),
+    FOREIGN KEY (company_id) REFERENCES company(id_company),
+    FOREIGN KEY (version_id) REFERENCES version(version_id)
+);" -C -N
+```
